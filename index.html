@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body {
+        background: linear-gradient(135deg, #f8f9fa 0%, #bdc1c5 100%);
+        margin: 0;
+        padding: 20px; 
+        min-height: 100vh;
+    }
+    .header
+    {
+        background-color: #bdc1c5;
+        color: black;
+        border: 1px solid grey;
+        padding: 10px;
+        margin: auto;
+    }
+        .container
+        {
+            display :flex;
+            justify-content:space-around;
+            flex-wrap: wrap;
+            gap:10px;
+            max-width:1200px;
+            margin: 20px auto;
+        }
+        .flex{
+            display: flex;
+            justify-content: space around;
+            width:30%;
+            border:1px solid gray;
+            border-radius: 50px;
+            padding:5px; 
+            text-align: center;
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+
+        }
+        .flex:hover
+        {
+            background-color: rgb(20, 75, 192);
+            color: rgb(61, 57, 57);
+            border-color: black;
+        }
+        img{
+            width: 100px;
+            height:100px;
+        }
+        .foot
+        {
+          background-color: #bdc1c5;
+          color: black;
+          border: 1px solid grey;
+          padding: 10px;
+          margin: auto;  
+        }
+
+    </style>
+</head>
+<header class="header">
+    Weather Report
+</header>
+<body>
+    <div class="container">
+    <div class = "flex">
+        <div>
+            <img id="icon1" src="" alt="weather icon"/><br>
+        </div>
+        <div>
+            <h2 id="name1"></h2>
+            <h3 id="region1"></h3>   
+            <p id="temp1"></p>   
+            <p id="humidity1"></p>   
+        </div>
+    </div>
+    <div class = "flex">
+        <div>
+            <img id="icon2" src="" alt="weather icon"/><br>
+        </div>
+        <div>
+            <h2 id="name2"></h2>
+            <h3 id="region2"></h3>   
+            <p id="temp2"></p>   
+            <p id="humidity2"></p>   
+        </div>
+    </div>
+    <div class = "flex">
+        <div>
+            <img id="icon3" src="" alt="weather icon"/><br>
+        </div>
+        <div>
+            <h2 id="name3"></h2>
+            <h3 id="region3"></h3>   
+            <p id="temp3"></p>   
+            <p id="humidity3"></p>   
+        </div>
+    </div>
+    <div class = "flex">
+        <div>
+            <img id="icon4" src="" alt="weather icon"/><br>
+        </div>
+        <div>
+            <h2 id="name4"></h2>
+            <h3 id="region4"></h3>   
+            <p id="temp4"></p>   
+            <p id="humidity4"></p>   
+        </div>
+    </div>
+    <div class = "flex">
+        <div>
+            <img id="icon5" src="" alt="weather icon"/><br>
+        </div>
+        <div>
+            <h2 id="name5"></h2>
+            <h3 id="region5"></h3>   
+            <p id="temp5"></p>   
+            <p id="humidity5"></p>   
+        </div>
+    </div>
+    <div class = "flex">
+        <div>
+            <img id="icon6" src="" alt="weather icon"/><br>
+        </div>
+        <div>
+            <h2 id="name6"></h2>
+            <h3 id="region6"></h3>   
+            <p id="temp6"></p>   
+            <p id="humidity6"></p>   
+        </div>
+    </div>
+    <div class = "flex">
+        <div>
+            <img id="icon7" src="" alt="weather icon"/><br>
+        </div>
+        <div>
+            <h2 id="name7"></h2>
+            <h3 id="region7"></h3>   
+            <p id="temp7"></p>   
+            <p id="humidity7"></p>   
+        </div>
+    </div>
+    <div class = "flex">
+        <div>
+            <img id="icon8" src="" alt="weather icon"/><br>
+        </div>
+        <div>
+            <h2 id="name8"></h2>
+            <h3 id="region8"></h3>   
+            <p id="temp8"></p>   
+            <p id="humidity8"></p>   
+        </div>
+    </div>
+    <div class = "flex">
+        <div>
+            <img id="icon9" src="" alt="weather icon"/><br>
+        </div>
+        <div>
+            <h2 id="name9"></h2>
+            <h3 id="region9"></h3>   
+            <p id="temp9"></p>   
+            <p id="humidity9"></p>   
+        </div>
+    </div>
+    </div>
+    <footer class="foot">
+        @today's weather.com
+    </footer>
+    </body>
+    <script>
+        // console.log("hi");
+        // setTimeout(()=>console.log("time out"),1000);  //asyn,awakw,promise
+        // console.log(end)
+        fetch("https://api.weatherapi.com/v1/current.json?q=mumbai&key=b60bf29e327d4f31b2592834260403")
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("icon1").setAttribute("src",data.current.condition.icon)
+            document.getElementById("name1").textContent=data.location.name
+            document.getElementById("region1").textContent=data.location.region+", "+data.location.country
+            document.getElementById("temp1").textContent="Temperature :" +data.current.temp_c
+             document.getElementById("humidity1").textContent="Humidity :" +data.current.humidity
+            console.log(data)
+        })
+         fetch("https://api.weatherapi.com/v1/current.json?q=coimbatore&key=b60bf29e327d4f31b2592834260403")
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("icon2").setAttribute("src",data.current.condition.icon)
+            document.getElementById("name2").textContent=data.location.name
+            document.getElementById("region2").textContent=data.location.region+", "+data.location.country
+            document.getElementById("temp2").textContent="Temperature :" +data.current.temp_c
+             document.getElementById("humidity2").textContent="Humidity :" +data.current.humidity
+            console.log(data)
+        })
+        fetch("https://api.weatherapi.com/v1/current.json?q=chennai&key=b60bf29e327d4f31b2592834260403")
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("icon3").setAttribute("src",data.current.condition.icon)
+            document.getElementById("name3").textContent=data.location.name
+            document.getElementById("region3").textContent=data.location.region+", "+data.location.country
+            document.getElementById("temp3").textContent="Temperature :" +data.current.temp_c
+             document.getElementById("humidity3").textContent="Humidity :" +data.current.humidity
+            console.log(data)
+        })
+        fetch("https://api.weatherapi.com/v1/current.json?q=kerala&key=b60bf29e327d4f31b2592834260403")
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("icon4").setAttribute("src",data.current.condition.icon)
+            document.getElementById("name4").textContent=data.location.name
+            document.getElementById("region4").textContent=data.location.region+", "+data.location.country
+            document.getElementById("temp4").textContent="Temperature :" +data.current.temp_c
+             document.getElementById("humidity4").textContent="Humidity :" +data.current.humidity
+            console.log(data)
+        })
+        fetch("https://api.weatherapi.com/v1/current.json?q=kochi&key=b60bf29e327d4f31b2592834260403")
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("icon5").setAttribute("src",data.current.condition.icon)
+            document.getElementById("name5").textContent=data.location.name
+            document.getElementById("region5").textContent=data.location.region+", "+data.location.country
+            document.getElementById("temp5").textContent="Temperature :" +data.current.temp_c
+            document.getElementById("humidity5").textContent="Humidity :" +data.current.humidity
+            console.log(data)
+        })
+        fetch("https://api.weatherapi.com/v1/current.json?q=delhi&key=b60bf29e327d4f31b2592834260403")
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("icon6").setAttribute("src",data.current.condition.icon)
+            document.getElementById("name6").textContent=data.location.name
+            document.getElementById("region6").textContent=data.location.region+", "+data.location.country
+            document.getElementById("temp6").textContent="Temperature :" +data.current.temp_c
+            document.getElementById("humidity6").textContent="Humidity :" +data.current.humidity
+            console.log(data)
+        })
+        fetch("https://api.weatherapi.com/v1/current.json?q=rajasthan&key=b60bf29e327d4f31b2592834260403")
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("icon7").setAttribute("src",data.current.condition.icon)
+            document.getElementById("name7").textContent=data.location.name
+            document.getElementById("region7").textContent=data.location.region+", "+data.location.country
+            document.getElementById("temp7").textContent="Temperature :" +data.current.temp_c
+            document.getElementById("humidity7").textContent="Humidity :" +data.current.humidity
+            console.log(data)
+        })
+        fetch("https://api.weatherapi.com/v1/current.json?q=karnataka&key=b60bf29e327d4f31b2592834260403")
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("icon8").setAttribute("src",data.current.condition.icon)
+            document.getElementById("name8").textContent=data.location.name
+            document.getElementById("region8").textContent=data.location.region+", "+data.location.country
+            document.getElementById("temp8").textContent="Temperature :" +data.current.temp_c
+            document.getElementById("humidity8").textContent="Humidity :" +data.current.humidity
+            console.log(data)
+        })
+        fetch("https://api.weatherapi.com/v1/current.json?q=bengal&key=b60bf29e327d4f31b2592834260403")
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("icon9").setAttribute("src",data.current.condition.icon)
+            document.getElementById("name9").textContent=data.location.name
+            document.getElementById("region9").textContent=data.location.region+", "+data.location.country
+            document.getElementById("temp9").textContent="Temperature :" +data.current.temp_c
+            document.getElementById("humidity9").textContent="Humidity :" +data.current.humidity
+            console.log(data)
+        })
+    </script>
+    
+</body>
+</html>
